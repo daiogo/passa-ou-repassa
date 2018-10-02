@@ -25,7 +25,7 @@ void POR_Init(void)
     POR_InitSwitch(GPIO_PORTF_BASE, GPIO_PIN_4);
 
     // Configure red led
-    POR_ConfigLed(GPIO_PORTF_BASE, GPIO_PIN_1);
+    POR_InitLed(GPIO_PORTF_BASE, GPIO_PIN_1);
 }
 
 void POR_Run(void)
@@ -52,7 +52,7 @@ void POR_InitSwitch(uint32_t port, uint8_t pins)
     HAL_GPIO_PadConfigSet(port, pins, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPU);
 }
 
-void POR_ConfigLed(uint32_t port, uint8_t pins)
+void POR_InitLed(uint32_t port, uint8_t pins)
 {
     HAL_GPIO_SetPinAsOutput(port, pins);
 }

@@ -31,7 +31,7 @@ void POR_Run(void);
 
 void POR_InitSwitch(uint32_t port, uint8_t pins);
 
-void POR_ConfigLed(uint32_t port, uint8_t pins);
+void POR_InitLed(uint32_t port, uint8_t pins);
 
 void POR_WriteToLed(uint32_t port, uint8_t pins, uint8_t value);
 
