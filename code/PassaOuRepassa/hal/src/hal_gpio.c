@@ -50,10 +50,30 @@ int32_t HAL_GPIO_ReadFromPin(uint32_t ui32Port, uint8_t ui8Pins)
 
 void HAL_GPIO_WriteToPin(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val)
 {
-
+    GPIOPinWrite(ui32Port, ui8Pins, ui8Val);
 }
 
 void HAL_GPIO_ConfigurePinFunction(uint32_t ui32PinConfig)
 {
+    GPIOPinConfigure(ui32PinConfig);
+}
 
+void HAL_GPIO_SetPinAsInput(uint32_t ui32Port, uint8_t ui8Pins)
+{
+    GPIOPinTypeGPIOInput(ui32Port, ui8Pins);
+}
+
+void HAL_GPIO_SetPinAsOutput(uint32_t ui32Port, uint8_t ui8Pins)
+{
+    GPIOPinTypeGPIOOutput(ui32Port, ui8Pins);
+}
+
+void HAL_GPIO_SetPinAsOpenDrain(uint32_t ui32Port, uint8_t ui8Pins)
+{
+    GPIOPinTypeGPIOOutputOD(ui32Port, ui8Pins);
+}
+
+void HAL_GPIO_PadConfigSet(uint32_t ui32Port, uint8_t ui8Pins, uint32_t ui32Strength, uint32_t ui32PinType)
+{
+    GPIOPadConfigSet(ui32Port, ui8Pins, ui32Strength, ui32PinType);
 }

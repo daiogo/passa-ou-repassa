@@ -12,6 +12,7 @@
  * Includes
  ******************************************************************************/
 #include "driverlib/gpio.h"
+#include "inc/hw_memmap.h"
 
 /*******************************************************************************
  * Prototypes
@@ -34,5 +35,13 @@ int32_t HAL_GPIO_ReadFromPin(uint32_t ui32Port, uint8_t ui8Pins);
 void HAL_GPIO_WriteToPin(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val);
 
 void HAL_GPIO_ConfigurePinFunction(uint32_t ui32PinConfig);
+
+void HAL_GPIO_SetPinAsInput(uint32_t ui32Port, uint8_t ui8Pins);
+
+void HAL_GPIO_SetPinAsOutput(uint32_t ui32Port, uint8_t ui8Pins);
+
+void HAL_GPIO_SetPinAsOpenDrain(uint32_t ui32Port, uint8_t ui8Pins);
+
+void HAL_GPIO_PadConfigSet(uint32_t ui32Port, uint8_t ui8Pins, uint32_t ui32Strength, uint32_t ui32PinType);
 
 #endif /* HAL_INC_HAL_GPIO_H_ */

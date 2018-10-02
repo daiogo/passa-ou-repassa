@@ -40,6 +40,10 @@
 #ifndef __DRIVERLIB_GPIO_H__
 #define __DRIVERLIB_GPIO_H__
 
+/*
+ * Added includes was necessary as explained in
+ * http://www.ti.com/lit/an/spma050a/spma050a.pdf
+ */
 #include <stdint.h>
 #include <stdbool.h>
 
