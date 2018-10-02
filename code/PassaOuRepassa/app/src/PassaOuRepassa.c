@@ -15,11 +15,9 @@
  ******************************************************************************/
 void POR_Init(void)
 {
-    // Set up the clock
-    SysCtlClockSet(SYSCTL_SYSDIV_4|SYSCTL_USE_PLL|SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN);
-
-    // Enable port F
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+    // Board hardware init
+    SysCtlClockSet(SYSCTL_SYSDIV_4|SYSCTL_USE_PLL|SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN);   // Set up the clock
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);                                        // Enable port F
 
     // Configure switch 1
     POR_InitSwitch(GPIO_PORTF_BASE, GPIO_PIN_4);

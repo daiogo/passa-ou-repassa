@@ -13,67 +13,67 @@
 /*******************************************************************************
  * Function Definitions
  ******************************************************************************/
-void HAL_GPIO_SetPinDirection(uint32_t ui32Port, uint8_t ui8Pins, uint32_t ui32PinIO)
+void HAL_GPIO_SetPinDirection(uint32_t port, uint8_t pins, uint32_t direction)
 {
-    GPIODirModeSet(ui32Port, ui8Pins, ui32PinIO);
+    GPIODirModeSet(port, pins, direction);
 }
 
-void HAL_GPIO_SetInterruptType(uint32_t ui32Port, uint8_t ui8Pins, uint32_t ui32IntType)
+void HAL_GPIO_SetInterruptType(uint32_t port, uint8_t pins, uint32_t interrupt_type)
 {
-    GPIOIntTypeSet(ui32Port, ui8Pins, ui32IntType);
+    GPIOIntTypeSet(port, pins, interrupt_type);
 }
 
-void HAL_GPIO_EnableInterrupts(uint32_t ui32Port, uint32_t ui32IntFlags)
+void HAL_GPIO_EnableInterrupts(uint32_t port, uint32_t interrupt_flags)
 {
-    GPIOIntEnable(ui32Port, ui32IntFlags);
+    GPIOIntEnable(port, interrupt_flags);
 }
 
-void HAL_GPIO_DisableInterrupts(uint32_t ui32Port, uint32_t ui32IntFlags)
+void HAL_GPIO_DisableInterrupts(uint32_t port, uint32_t interrupt_flags)
 {
-    GPIOIntDisable(ui32Port, ui32IntFlags);
+    GPIOIntDisable(port, interrupt_flags);
 }
 
-void HAL_GPIO_ClearInterrupt(uint32_t ui32Port, uint32_t ui32IntFlags)
+void HAL_GPIO_ClearInterrupt(uint32_t port, uint32_t interrupt_flags)
 {
-    GPIOIntClear(ui32Port, ui32IntFlags);
+    GPIOIntClear(port, interrupt_flags);
 }
 
-void HAL_GPIO_RegisterPinInterruptHandler(uint32_t ui32Port, uint32_t ui32Pin, void (*pfnIntHandler)(void))
+void HAL_GPIO_RegisterPinInterruptHandler(uint32_t port, uint32_t pin, void (*fp_interrupt_handler)(void))
 {
-    GPIOIntRegisterPin(ui32Port, ui32Pin, *pfnIntHandler);
+    GPIOIntRegisterPin(port, pin, *fp_interrupt_handler);
 }
 
-int32_t HAL_GPIO_ReadFromPin(uint32_t ui32Port, uint8_t ui8Pins)
+int32_t HAL_GPIO_ReadFromPin(uint32_t port, uint8_t pins)
 {
-    return GPIOPinRead(ui32Port, ui8Pins);
+    return GPIOPinRead(port, pins);
 }
 
-void HAL_GPIO_WriteToPin(uint32_t ui32Port, uint8_t ui8Pins, uint8_t ui8Val)
+void HAL_GPIO_WriteToPin(uint32_t port, uint8_t pins, uint8_t value)
 {
-    GPIOPinWrite(ui32Port, ui8Pins, ui8Val);
+    GPIOPinWrite(port, pins, value);
 }
 
-void HAL_GPIO_ConfigurePinFunction(uint32_t ui32PinConfig)
+void HAL_GPIO_ConfigurePinFunction(uint32_t pin_config)
 {
-    GPIOPinConfigure(ui32PinConfig);
+    GPIOPinConfigure(pin_config);
 }
 
-void HAL_GPIO_SetPinAsInput(uint32_t ui32Port, uint8_t ui8Pins)
+void HAL_GPIO_SetPinAsInput(uint32_t port, uint8_t pins)
 {
-    GPIOPinTypeGPIOInput(ui32Port, ui8Pins);
+    GPIOPinTypeGPIOInput(port, pins);
 }
 
-void HAL_GPIO_SetPinAsOutput(uint32_t ui32Port, uint8_t ui8Pins)
+void HAL_GPIO_SetPinAsOutput(uint32_t port, uint8_t pins)
 {
-    GPIOPinTypeGPIOOutput(ui32Port, ui8Pins);
+    GPIOPinTypeGPIOOutput(port, pins);
 }
 
-void HAL_GPIO_SetPinAsOpenDrain(uint32_t ui32Port, uint8_t ui8Pins)
+void HAL_GPIO_SetPinAsOpenDrain(uint32_t port, uint8_t pins)
 {
-    GPIOPinTypeGPIOOutputOD(ui32Port, ui8Pins);
+    GPIOPinTypeGPIOOutputOD(port, pins);
 }
 
-void HAL_GPIO_PadConfigSet(uint32_t ui32Port, uint8_t ui8Pins, uint32_t ui32Strength, uint32_t ui32PinType)
+void HAL_GPIO_PadConfigSet(uint32_t port, uint8_t pins, uint32_t strength, uint32_t pin_type)
 {
-    GPIOPadConfigSet(ui32Port, ui8Pins, ui32Strength, ui32PinType);
+    GPIOPadConfigSet(port, pins, strength, pin_type);
 }
