@@ -32,6 +32,9 @@ void POR_Init(void)
     POR_InitLed(LED1_PORT, LED1);
     POR_InitLed(LED2_PORT, LED2);
     POR_InitLed(LED3_PORT, LED3);
+
+    // Init Interrupts
+    POR_SetInterrupts();
 }
 
 void POR_Run(void)
@@ -84,3 +87,14 @@ int32_t POR_ReadFromSwitch(uint32_t arg_Port, uint8_t arg_Pins)
     return HAL_GPIO_ReadFromPin(arg_Port, arg_Pins);
 }
 
+void POR_SetInterrupts(void)
+{
+    HAL_GPIO_SetInterruptType(SW0_PORT, SW0, INTERRUPT_TYPE);
+    HAL_GPIO_SetInterruptType(SW1_PORT, SW1, INTERRUPT_TYPE);
+    HAL_GPIO_SetInterruptType(SW2_PORT, SW2, INTERRUPT_TYPE);
+    HAL_GPIO_SetInterruptType(SW3_PORT, SW3, INTERRUPT_TYPE);
+
+    HAL_GPIO_RegisterInterruptHandler(SW0_PORT, HAL_GPIO_IrqHandlerPortD);
+
+    HAL_GPIO_EnableInterrupts(SW0_PORT, SW0);
+}

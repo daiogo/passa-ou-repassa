@@ -38,9 +38,9 @@ void HAL_GPIO_ClearInterrupt(uint32_t arg_Port, uint32_t arg_InterruptFlags)
     GPIOIntClear(arg_Port, arg_InterruptFlags);
 }
 
-void HAL_GPIO_RegisterPinInterruptHandler(uint32_t arg_Port, uint32_t arg_Pin, void (*arg_fpInterruptHandler)(void))
+void HAL_GPIO_RegisterInterruptHandler(uint32_t arg_Port, void (*arg_fpInterruptHandler)(void))
 {
-    GPIOIntRegisterPin(arg_Port, arg_Pin, *arg_fpInterruptHandler);
+    GPIOIntRegister(arg_Port, arg_fpInterruptHandler);
 }
 
 int32_t HAL_GPIO_ReadFromPin(uint32_t arg_Port, uint8_t arg_Pins)
@@ -76,4 +76,15 @@ void HAL_GPIO_SetPinAsOpenDrain(uint32_t arg_Port, uint8_t arg_Pins)
 void HAL_GPIO_PadConfigSet(uint32_t arg_Port, uint8_t arg_Pins, uint32_t arg_Strength, uint32_t arg_PinType)
 {
     GPIOPadConfigSet(arg_Port, arg_Pins, arg_Strength, arg_PinType);
+}
+
+void HAL_GPIO_GetInterruptStatus(uint32_t arg_Port, bool arg_Masked)
+{
+    GPIOIntStatus(arg_Port, arg_Masked);
+}
+
+void HAL_GPIO_IrqHandlerPortD(void)
+{
+    uint32_t loc_Status = GPIOIntStatus(GPIO_PORTD_BASE, true);
+    GPIOIntClear(GPIO_PORTD_BASE, loc_Status);
 }
