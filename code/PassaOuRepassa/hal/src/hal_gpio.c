@@ -9,6 +9,7 @@
  * Includes
  ******************************************************************************/
 #include "hal_gpio.h"
+#include "Events.h"
 
 /*******************************************************************************
  * Function Definitions
@@ -85,6 +86,12 @@ void HAL_GPIO_GetInterruptStatus(uint32_t arg_Port, bool arg_Masked)
 
 void HAL_GPIO_IrqHandlerPortD(void)
 {
+    // Get interrupt flag
     uint32_t loc_Status = GPIOIntStatus(GPIO_PORTD_BASE, true);
+
+    // Clear interrupt flag
     GPIOIntClear(GPIO_PORTD_BASE, loc_Status);
+
+    // Call code in events layer
+    SWITCH_OnSwitchPressed(loc_Status);
 }
