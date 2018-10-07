@@ -95,3 +95,15 @@ void HAL_GPIO_IrqHandlerPortD(void)
     // Call code in events layer
     SWITCH_OnSwitchPressed(loc_Status);
 }
+
+void HAL_GPIO_IrqHandlerPortB(void)
+{
+    // Get interrupt flag
+    uint32_t loc_Status = GPIOIntStatus(GPIO_PORTB_BASE, true);
+
+    // Clear interrupt flag
+    GPIOIntClear(GPIO_PORTB_BASE, loc_Status);
+
+    // Call code in events layer
+    SWITCH_OnSwitchPressed(loc_Status);
+}

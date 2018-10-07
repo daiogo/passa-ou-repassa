@@ -15,5 +15,5 @@
  ******************************************************************************/
 void SWITCH_OnSwitchPressed(uint32_t arg_SwitchIndex)
 {
-    POR_SetFirstPressedSwitch(arg_SwitchIndex);
+    POR_SetState(arg_SwitchIndex);
 }

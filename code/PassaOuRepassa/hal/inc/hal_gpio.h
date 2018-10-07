@@ -48,4 +48,6 @@ void HAL_GPIO_GetInterruptStatus(uint32_t arg_Port, bool arg_Masked);
 
 void HAL_GPIO_IrqHandlerPortD(void);
 
+void HAL_GPIO_IrqHandlerPortB(void);
+
 #endif /* HAL_INC_HAL_GPIO_H_ */
